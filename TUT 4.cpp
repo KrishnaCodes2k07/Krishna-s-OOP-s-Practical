@@ -9,8 +9,7 @@ public:
         real = r;
         imag = i;
     }
-
-    Complex operator*(float scalar) {
+    Complex multiply(float scalar) {
         return Complex(real * scalar, imag * scalar);
     }
 
@@ -29,7 +28,7 @@ int main() {
     cin >> scalar;
 
     Complex c(real, imag);
-    Complex result = c * scalar;
+    Complex result = c.multiply(scalar);
 
     cout << "Result: ";
     result.display();
