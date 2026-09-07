@@ -5,37 +5,33 @@ class Complex {
     float real, imag;
 
 public:
-    void input() {
-        cout << "Enter real and imaginary parts: ";
-        cin >> real >> imag;
+    Complex(float r = 0, float i = 0) {
+        real = r;
+        imag = i;
     }
-    Complex subtract(Complex c) {
-        Complex result;
-        result.real = real - c.real;
-        result.imag = imag - c.imag;
-        return result;
+
+    Complex operator*(float scalar) {
+        return Complex(real * scalar, imag * scalar);
     }
+
     void display() {
-        cout << real;
-        if (imag >= 0)
-            cout << " + " << imag << "i";
-        else
-            cout << " - " << -imag << "i";
-        cout << endl;
+        cout << real << " + " << imag << "i" << endl;
     }
 };
+
 int main() {
-    Complex c1, c2, result;
+    float real, imag, scalar;
 
-    cout << "Enter first complex number:\n";
-    c1.input();
+    cout << "Enter real and imaginary parts: ";
+    cin >> real >> imag;
 
-    cout << "Enter second complex number:\n";
-    c2.input();
+    cout << "Enter scalar value: ";
+    cin >> scalar;
 
-    result = c1.subtract(c2);
+    Complex c(real, imag);
+    Complex result = c * scalar;
 
-    cout << "Difference = ";
+    cout << "Result: ";
     result.display();
 
     return 0;
