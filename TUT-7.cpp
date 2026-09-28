@@ -1,46 +1,42 @@
-#include <iostream>
-#include <cstring>
-using namespace std;
+#include <iostream>          // Includes input/output functions like cout and cin
+#include <cstring>           // Includes string-related functions
+using namespace std;         // Allows us to use cout and cin without std::
 
-class String
+class String                // Defines a class named String
 {
-    char *str;
+    char *str;              // Declares a character pointer to store the string
 
-public:
+public:                     // Makes the following members accessible outside the class
 
-    // Constructor
-    String()
+    String()                // Constructor: called automatically when object is created
     {
-        str = new char[100];
-        str[0] = '\0';
+        str = new char[100]; // Dynamically allocates memory for 100 characters
+        str[0] = '\0';       // Initializes the string as empty
     }
 
-    // Accept Function
-    void Accept()
+    void Accept()            // Defines Accept() function to take input
     {
-        cout << "Enter the string = ";
-        cin.getline(str, 100);
+        cout << "Enter the string = "; // Displays a message to the user
+        cin.getline(str, 100);         // Accepts a string including spaces
     }
 
-    // Display Function
-    void Display()
+    void Display()           // Defines Display() function to display the string
     {
-        cout << "String is = " << str << endl;
+        cout << "String is = " << str << endl; // Displays the stored string
     }
 
-    // Destructor 
-    ~String()
+    ~String()                // Destructor: called automatically when object is destroyed
     {
-        delete[] str;
+        delete[] str;        // Releases the dynamically allocated memory
     }
 };
 
-int main() //main function start 
+int main()                   // Main function: execution starts here
 {
-    String s;
+    String s;                // Creates an object 's' and calls the constructor
 
-    s.Accept(); //accepting the string 
-    s.Display();//displaying the string 
+    s.Accept();              // Calls Accept() to input the string
+    s.Display();             // Calls Display() to display the string
 
-    return 0;
+    return 0;                // Ends the program successfully
 }
